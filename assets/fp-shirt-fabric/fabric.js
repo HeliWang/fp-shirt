@@ -265,7 +265,7 @@ angular.module('common.fabric', [
 		// Text
 		// ==============================================================
 		self.addText = function(str) {
-			str = str || 'F     P';
+			str = str || 'New Text';
 			var object = new FabricWindow.Text(str, self.textDefaults);
 			object.id = self.createId();
 
@@ -335,6 +335,7 @@ angular.module('common.fabric', [
 		};
 
 		self.toggleBold = function() {
+			self.setDirty(true);
 			setActiveStyle('fontWeight',
 				getActiveStyle('fontWeight') === 'bold' ? '' : 'bold');
 			self.render();
@@ -348,6 +349,7 @@ angular.module('common.fabric', [
 		};
 
 		self.toggleItalic = function() {
+			self.setDirty(true);
 			setActiveStyle('fontStyle',
 				getActiveStyle('fontStyle') === 'italic' ? '' : 'italic');
 			self.render();
@@ -361,6 +363,7 @@ angular.module('common.fabric', [
 		};
 
 		self.toggleUnderline = function() {
+			self.setDirty(true);
 			var value = self.isUnderline() ? getActiveStyle('textDecoration').replace('underline', '') : (getActiveStyle('textDecoration') + ' underline');
 
 			setActiveStyle('textDecoration', value);
@@ -665,6 +668,12 @@ angular.module('common.fabric', [
 		};
 
 		//
+		// Edit History
+		// ==============================================================
+		
+		self.history = [];
+		
+		//
 		// State Managers
 		// ==============================================================
 		self.isLoading = function() {
@@ -677,6 +686,15 @@ angular.module('common.fabric', [
 
 		self.setDirty = function(value) {
 			FabricDirtyStatus.setDirty(value);
+			if (value == true){
+				var dNow = new Date();
+				var s = dNow.getMonth() + '/' + dNow.getDate() + '/' + dNow.getFullYear() + ' ' + dNow.getHours() + ':' + dNow.getMinutes()+ ':' + dNow.getSeconds();
+				if(self.history.length > 0 && self.history[0].time == s) return; 
+				self.history.unshift({
+				  time: s,
+				  content: self.getJSON()
+				});
+			}
 		};
 
 		self.isDirty = function() {

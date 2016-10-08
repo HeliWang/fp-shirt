@@ -117,58 +117,8 @@
                 </ul>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-user">
-                  </span>
-                  <b> Login
-                  </b> 
-                  <span class="caret">
-                  </span>
-                </a>
-                <ul id="login-dp" class="dropdown-menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <!-- Login -->
-                        <div class="social-buttons">
-                          <div class="iconSpecial">
-                            <i class="glyphicon glyphicon-user">
-                            </i>Login
-                          </div>
-                        </div>                               
-                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail2">login
-                            </label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                          </div>
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword2">Senha
-                            </label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                            <div class="help-block text-right">
-                              <a href="">Forget password ?
-                              </a>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Log in
-                            </button>
-                          </div>
-                          <div class="checkbox text-dark">
-                            <label>
-                              <input type="checkbox"> Remember me
-                            </label>
-                          </div>
-                        </form>
-                      </div>						
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+
+
           </div>
           <!-- /.navbar-collapse -->
         </div>
@@ -286,7 +236,7 @@
             </label>
 
 
-            <button ng-click="fabric.addText()" class='btn btn-default'>
+            <button ng-click="addText()" class='btn btn-default'>
               <i class='fa fa-font'>
               </i>
               &nbsp; Text &nbsp;
@@ -311,6 +261,28 @@
             </a>
           </div>
           <div class="nav navbar-nav btn-group navbar-collapse animated fadeIn flipInX extraTopPdding pull-right">
+            
+
+            
+            <li class="dropdown">
+             <button ng-click="undo(0)" class='btn btn-default' data-toggle="dropdown">
+              <i class='fa fa-undo'>
+              </i>
+              Edit History
+            </button>
+            
+                <ul class="dropdown-menu animated flipInX" role="menu">
+                  </li>
+                        <li class="divider"> </li>
+            
+                  <li ng-repeat="version in fabric.history|limitTo:10">
+                    <a href ng-click="undo($index)">>{{version.time}}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            
             <button class='btn btn-success'>
               <i class='fa fa-save'>
               </i>
@@ -325,12 +297,6 @@
       <div class='image-builder-container'>
         <div ng-if="fabric.isLoading()" class="image-loading">
           <div class="loading-indicator">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <!--
-<small><em class='text-muted'>Image and shape do not work due to codepen cross-origin.</em></small>    <br /> -->
           </div>
         </div>
         <br />
