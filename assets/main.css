@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'),
+	local('OpenSans'),
+	url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'),
+	url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+
+body {
+  padding: 10px;
+}
+
+
+.extraTopPdding{
+	padding-top:10px !important;
+}
+
+.pen-title-area {
+    padding: 10px 15px 0 15px;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.pen-title-area .icon-codepen-box {
+    fill: white;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px
+}
+
+.pen-title-area .pen-title-text {
+    width: 100%;
+    min-width: 0
+}
+
+.pen-title-area .pen-title {
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    width: 100%;
+    font-size: 1.3rem;
+    margin: 0 0 1px 0
+}
+
+.pen-title-area .pen-title input[type="text"] {
+    font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    color: currentColor;
+    margin-top: -1px;
+    margin-bottom: 2px;
+    padding: 0;
+    width: 100%
+}
+
+body.details .pen-title-area .pen-title {
+    font-size: 1.6rem
+}
+
+.pen-title-area .pen-title-link {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    display: inline-block;
+    color: inherit
+}
+
+.pen-title-area .by {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #999
+}
+
+.pen-title-area .by .pen-owner-link {
+    color: white;
+    font-size: 0.9rem;
+    text-transform: none;
+    letter-spacing: 0
+}
+
+body.details .pen-title-area .by {
+    display: none
+}
+
+.pen-title-area .pen-title-link, .pen-title-area .pen-owner-link {
+    transition: opacity 200ms
+}
+
+.pen-title-area .pen-title-link:hover, .pen-title-area .pen-title-link:focus,
+.pen-title-area .pen-owner-link:hover, .pen-title-area .pen-owner-link:focus {
+    opacity: 0.8
+}
+
+.pen-title-area.editing .pen-title-link, .pen-title-area.editing .edit-pen-title {
+    display: none
+}
+
+body.details .pen-title-area {
+    padding-top: 18px
+}
+
+
+.center {
+    margin-top:50px;   
+}
+
+.modal-header {
+	padding-bottom: 5px;
+}
+
+.modal-footer {
+    	padding: 0;
+	}
+    
+.modal-footer .btn-group button {
+	height:40px;
+	border-top-left-radius : 0;
+	border-top-right-radius : 0;
+	border: none;
+	border-right: 1px solid #ddd;
+}
+	
+.modal-footer .btn-group:last-child > button {
+	border-right: 0;
+}
+

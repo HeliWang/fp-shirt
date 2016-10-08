@@ -1,0 +1,25 @@
+{
+  "name": "fp-shirt",
+  "version": "1.0.0",
+  "description": "A cool shirt design tool",
+  "main": "server.js",
+  "author": "Heli (Harlan) Wang",
+  "devDependencies": {
+    "should": "~7.1.0",
+    "mocha": "~2.3.3",
+    "supertest": "~1.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.3",
+    "fs": "^0.0.2",
+    "multer": "^1.1.0",
+    "request": "^2.69.0",
+    "datejs": "^1.0.0-rc3",
+    "util": "^0.10.3",
+    "uuid": "^2.0.1",
+    "querystring": "^0.2.0",
+    "cookie-parser": "^1.4.3",
+     "multer": "1.1.0"
+  }
+}

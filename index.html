@@ -1,0 +1,446 @@
+<html data-ng-app="fp-shirt">
+  <head>
+    <title>FP-Shirt: A brilliant T-shirt design app
+    </title>
+    <!--Bootstrap + AngularJS libraries -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+    </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-aria.js">
+    </script>
+    <!-- flow.js + ng-flow libraries for uploading pictures-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ng-flow/2.7.4/ng-flow.js">
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/flow.js/2.11.2/flow.min.js">
+    </script>
+    <!--Fabric.js for Angular libraries -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.5/fabric.min.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabric.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricCanvas.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricConstants.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricDirective.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricDirtyStatus.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricUtilities.js">
+    </script>
+    <script src="assets/fp-shirt-fabric/fabricWindow.js">
+    </script>
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/navbar.css">
+    <script src="assets/navbar.js">
+    </script>
+    <!-- Load app main script (main controller) -->
+    <script src="app/app.js">
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+  <body>
+    <div ng-controller="mainController">
+      <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation
+              </span>
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+            </button>
+            <!-- logo -->
+            <a class="navbar-brand" href="#">
+              <img alt="FP-Shirt" src="assets/img/logo.png"/>
+            </a>     
+          </div>
+          <div class="collapse navbar-right navbar-collapse animated fadeIn" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav animated fadeIn text16">
+              <li>
+                <a href="#" ng-click="fabric.download('myCanvas')" >
+                  <span class="glyphicon glyphicon-download-alt">
+                  </span>
+                </a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-list-alt">
+                  </span> Saved Designs 
+                  <span class="caret">
+                  </span>
+                </a>
+                <ul class="dropdown-menu animated flipInX" role="menu">
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-list-alt">
+                      </span>   PayOptOne Web
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-road">
+                      </span>   PayOptTwo Web
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-barcode">
+                      </span>  PayOptTree Web
+                    </a>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <a href="#">Separated link
+                    </a>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <a href="#">One more separated link
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-user">
+                  </span>
+                  <b> Login
+                  </b> 
+                  <span class="caret">
+                  </span>
+                </a>
+                <ul id="login-dp" class="dropdown-menu">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- Login -->
+                        <div class="social-buttons">
+                          <div class="iconSpecial">
+                            <i class="glyphicon glyphicon-user">
+                            </i>Login
+                          </div>
+                        </div>                               
+                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">login
+                            </label>
+                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword2">Senha
+                            </label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                            <div class="help-block text-right">
+                              <a href="">Forget password ?
+                              </a>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Log in
+                            </button>
+                          </div>
+                          <div class="checkbox text-dark">
+                            <label>
+                              <input type="checkbox"> Remember me
+                            </label>
+                          </div>
+                        </form>
+                      </div>						
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation
+              </span>
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand" href="#" id="namebrand" data-toggle="modal" data-target="#projectModal">{{projectname}}
+            </a>
+          </div>
+          <div class='nav navbar-nav btn-group navbar-collapse animated fadeIn flipInX extraTopPdding'>
+            <button  class='btn btn-default dropdown mega-dropdown'>
+              <i class='fa fa-caret-square-o-down'>
+              </i>
+              T-Shirt
+              <div id="shirtMenu" class="dropdown-menu mega-dropdown-menu">
+                <div class="container-fluid">
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="men">
+                      <ul class="nav-list list-inline">
+                        <li>
+                          <a ng-click='changeShirt("assets/img/mens_hoodie_front.png")' href="#">
+                            <img src="assets/img/mens_hoodie_front.png"  height="100px" width="100px">
+                            <span>Hoodie
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/mens_longsleeve_front.png")' href="#">
+                            <img src="assets/img/mens_longsleeve_front.png"  height="100px" width="100px">
+                            <span>Longsleeve
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/crew_front.png")' href="#">
+                            <img src="assets/img/crew_front.png"  height="100px" width="100px">
+                            <span>Sweatshirt
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/mens_tank_front.png")' href="#">
+                            <img src="assets/img/mens_tank_front.png"  height="100px" width="100px">
+                            <span>Singlet
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-pane" id="women">
+                      <ul class="nav-list list-inline">
+                        <li>
+                          <a ng-click='changeShirt("assets/img/mens_hoodie_front.png")' href="#">
+                            <img src="assets/img/mens_hoodie_front.png"  height="100px" width="100px">
+                            <span>Hoodie
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/mens_longsleeve_front.png")' href="#">
+                            <img src="assets/img/mens_longsleeve_front.png"  height="100px" width="100px">
+                            <span>Longsleeve
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/crew_front.png")' href="#">
+                            <img src="assets/img/crew_front.png"  height="100px" width="100px">
+                            <span>Sweatshirt
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a ng-click='changeShirt("assets/img/womens_crew_front.png")' href="#">
+                            <img src="assets/img/womens_crew_front.png"  height="100px" width="100px">
+                            <span>Singlet
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="active">
+                    <a href="#men" role="tab" data-toggle="tab">Men
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#women" role="tab" data-toggle="tab">Women
+                    </a>
+                  </li>
+                </ul>                    
+              </div>	
+            </button>
+            <label class='btn btn-default btn-file'>
+              <i class='fa fa-image'>
+              </i>
+              Image <input type="file" fileupload="uploadFile" style="display: none;">
+            </label>
+
+
+            <button ng-click="fabric.addText()" class='btn btn-default'>
+              <i class='fa fa-font'>
+              </i>
+              &nbsp; Text &nbsp;
+            </button>
+          </div>
+          <a class="navbar-brand" href="#">
+          </a>
+          <div class='nav navbar-nav btn-group navbar-collapse animated fadeIn flipInX extraTopPdding'>
+            <a href ng-click="changeColor('#449D44')"  class='dot dot-sm' style="background-color:#449D44;">
+            </a>
+            <a href ng-click="changeColor('#D9534F')" class='dot dot-sm' style="background-color:#D9534F;">
+            </a>
+            <a href ng-click="changeColor('#F0AD4E')" class='dot dot-sm' style="background-color:#F0AD4E;">
+            </a>
+            <a href ng-click="changeColor('#8aa140')" class='dot dot-sm' style="background-color:#8aa140;">
+            </a>
+            <a href ng-click="changeColor('#b8d5d7')" class='dot dot-sm' style="background-color:#b8d5d7;">
+            </a>
+            <a href ng-click="changeColor('#15aeda')" class='dot dot-sm' style="background-color:#15aeda;">
+            </a>
+            <a href ng-click="changeColor('#a5def8')" class='dot dot-sm' style="background-color:#a5def8;">
+            </a>
+          </div>
+          <div class="nav navbar-nav btn-group navbar-collapse animated fadeIn flipInX extraTopPdding pull-right">
+            <button class='btn btn-success'>
+              <i class='fa fa-save'>
+              </i>
+              Save 
+              <span ng-show='fabric.isDirty()' class='text-info'>*
+              </span>
+            </button>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <div class='image-builder-container'>
+        <div ng-if="fabric.isLoading()" class="image-loading">
+          <div class="loading-indicator">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <!--
+<small><em class='text-muted'>Image and shape do not work due to codepen cross-origin.</em></small>    <br /> -->
+          </div>
+        </div>
+        <br />
+        <div class='row'>
+          <div class='col-xs-offset-1 col-xs-8'>
+            <div class='image-builder' parent-click="fabric.deactivateAll()">
+              <div class='fabric-container'>
+                <canvas id="canvas" fabric='fabric'>
+                </canvas>
+              </div>
+            </div>
+          </div>
+          <div class='col-xs-3'>
+            <div ng-if='fabric.selectedObject'>
+              <div class='row'>
+                <div class='col-xs-1 col-xs-offset-1 text-center'>
+                  <i class='fa fa-search pull-left'>
+                  </i>
+                </div>
+                <div class='col-xs-9'>
+                  <input class='col-sm-12' title="Zoom" type='range' class='pull-left' min='.1' max='3' step='.1' ng-change='fabric.setZoom()' ng-model='fabric.canvasScale' />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-xs-1 col-xs-offset-1 text-center'>
+                  <i class='fa fa-eye-slash pull-left'>
+                  </i>
+                </div>
+                <div class='col-xs-9'>
+                  <input class='col-sm-12' title="Transparency" type='range' class='pull-left' min='0' max='1' step='.01' ng-model='fabric.selectedObject.opacity' />
+                </div>
+              </div>
+              <div class="row mbm">
+                <div class="col-sm-12">
+                  <br />
+                  <button ng-click="fabric.deleteActiveObject(); fabric.setDirty(true)" class='btn btn-small btn-danger col-xs-offset-1'>
+                    <i class='fa fa-trash-o'>
+                    </i>
+                  </button>
+                  <button class='btn btn-small' ng-class="{ active: fabric.getFlipX() }" ng-click="{ active: fabric.toggleFlipX() }">
+                    <i class='fa fa-exchange'>
+                    </i>
+                  </button>
+                  <button ng-show="fabric.selectedObject.type == 'text'" ng-class="{ active: fabric.isBold() }" ng-click="fabric.toggleBold()" class='btn btn-small'>
+                    <i class='fa fa-bold'>
+                    </i>
+                  </button>
+                  <button ng-show="fabric.selectedObject.type == 'text'" ng-class="{ active: fabric.isItalic() }" ng-click="fabric.toggleItalic()" class='btn btn-small'>
+                    <i class='fa fa-italic'>
+                    </i>
+                  </button>
+                  <button ng-show="fabric.selectedObject.type == 'text'" ng-class="{ active: fabric.isUnderline() }" ng-click="fabric.toggleUnderline()" class='btn btn-small'>
+                    <i class='fa fa-underline'>
+                    </i>
+                  </button>
+                </div>
+              </div>
+              <div class="col-xs-offset-1 extraTopPdding" ng-show="fabric.selectedObject.type == 'text'">
+                <div class="row">
+                  <div class="btn-group col-sm-12">
+                    <a class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" href="#">
+                      <span class='object-font-family-preview' style='font-family: "{{ fabric.selectedObject.fontFamily }}";'>
+                        {{ fabric.selectedObject.fontFamily }}
+                      </span>
+                      <span class="caret">
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li ng-repeat='font in FabricConstants.fonts' ng-click='fabric.selectedObject.fontFamily = font.name' style='font-family: "{{ font.name }}";'>
+                        <a>{{ font.name }}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <p>
+                  <textarea style="text-align: {{ fabric.selectedObject.textAlign }}" class="form-control" rows="6" ng-model="fabric.selectedObject.text">
+                  </textarea>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- line modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label>Welcome To FPShirts!
+                </label>
+                <label>Please name your new project:
+                </label>
+                <input type="text" id="projectnameedit" class="form-control" placeholder="Project Name">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+              <div class="btn-group" role="group">
+                <button type="button" id="modalConfirm" class="btn btn-default"  role="button"  data-dismiss="modal">Create a new project
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
