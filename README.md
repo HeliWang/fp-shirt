@@ -11,5 +11,4 @@
  - Implement an edit history for the editor
  - Aesthetically pleasing
 
- Installation:
-   npm install
+ Running environment: Cloud9 Dev Environment
