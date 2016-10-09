@@ -17,8 +17,6 @@
  Please check the email I sent to Adam (adampan@freshprints.com) to see the environment address, username and password
  
 Start MySQL:  right click on the server.js in the file list and select "Open Terminal here". Then type in
-
- mysql-ctl status
  mysql-ctl start                                                                             
 
 Start Nodejs:
