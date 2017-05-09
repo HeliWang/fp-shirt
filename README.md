@@ -1,5 +1,5 @@
 # fp-shirt
- A T-shirt design app for Fresh Prints
+ A T-shirt design app
  
  Live Demo: https://fpshirts-sanhuan222.c9users.io
  
